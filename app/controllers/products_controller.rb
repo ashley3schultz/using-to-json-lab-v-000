@@ -27,12 +27,13 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @product.to_json(only: [:name, :price, :inventory, :description, :id]) }
+      render json: product.to_json(only: [:name, :price, :inventory, :description, :id])
     end
   end
 
   def data
     product = Product.find(params[:id])
-    render json: product.to_json(only: [:name, :price, :inventory, :description, :id])
+
   end
 
   private
